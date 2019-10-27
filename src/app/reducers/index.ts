@@ -6,7 +6,7 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { Tarea } from '../tarea';
+import { storageReducer } from './local-storage';
 import * as fromTarea from './tarea';
 
 export interface State {
@@ -27,5 +27,5 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
   };
 }
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [logger] : [];
+export const metaReducers: MetaReducer<State>[] = !environment.production ? [logger, storageReducer] : [];
  
