@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Tarea } from '../tarea';
+import { Store, select } from '@ngrx/store';
+import * as TareaActions from '../actions/tarea';
 
 @Component({
   selector: 'app-agregar-tarea',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarTareaComponent implements OnInit {
 
-  constructor() { }
+	tarea: Tarea;
+
+  constructor(private store: Store<any>) { 
+  	this.tarea = new Tarea();
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+  	this.store.dispatch(TareaActions.agregarTarea({
+  		tarea: { 
+	  		id: Tarea.uuid(), 
+	  		completado: false, 
+	  		name: this.tarea.name, 
+	  		editando: false 
+  		}
+  	}));
+  	this.tarea.name = "";
   }
 
 }

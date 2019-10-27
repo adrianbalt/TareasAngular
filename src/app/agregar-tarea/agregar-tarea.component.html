@@ -1,5 +1,6 @@
-<form class="agregar-tarea">
+<form class="agregar-tarea" (ngSubmit)="onSubmit()">
   <mat-form-field >
-    <input matInput placeholder="Agregar Tarea" value="Tarea nueva">
+    <input matInput name="agregar-tarea" placeholder="Agregar Tarea" [(ngModel)]="tarea.name" required="required">
   </mat-form-field>
 </form>
+{{tarea.name}}
