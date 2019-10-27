@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { AgregarTareaComponent } from './agregar-tarea/agregar-tarea.component';
 import { TareaComponent } from './tarea/tarea.component';
 import { ListaDeTareasComponent } from './lista-de-tareas/lista-de-tareas.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,14 @@ import { ListaDeTareasComponent } from './lista-de-tareas/lista-de-tareas.compon
     ListaDeTareasComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
