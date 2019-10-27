@@ -7,6 +7,9 @@ import { TareaComponent } from './tarea/tarea.component';
 import { ListaDeTareasComponent } from './lista-de-tareas/lista-de-tareas.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { reducers, metaReducers } from './reducers';
         strictStateImmutability: true,
         strictActionImmutability: true
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
