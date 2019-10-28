@@ -17,7 +17,7 @@ const tareasReducer = createReducer(
   initialState,
   on(TareaActions.agregarTarea, (state, {tarea}) =>{
   	let newState = copiarTareas(state);
-  	newState.tareas.push(tarea);
+  	newState.tareas.unshift(tarea);
   	return newState;
   }),
   on(TareaActions.editarTarea, (state, {tarea}) =>{

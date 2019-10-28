@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TareaComponent } from './tarea.component';
+import { TareaEditorComponent } from './tarea-editor.component';
 
-describe('TareaComponent', () => {
-  let component: TareaComponent;
-  let fixture: ComponentFixture<TareaComponent>;
+describe('TareaEditorComponent', () => {
+  let component: TareaEditorComponent;
+  let fixture: ComponentFixture<TareaEditorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TareaComponent ]
+      declarations: [ TareaEditorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TareaComponent);
+    fixture = TestBed.createComponent(TareaEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
