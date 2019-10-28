@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarea } from '../tarea';
 import { Store, select } from '@ngrx/store';
+import {FormControl} from '@angular/forms';
 import * as TareaActions from '../actions/tarea';
 
 @Component({
@@ -10,25 +11,29 @@ import * as TareaActions from '../actions/tarea';
 })
 export class AgregarTareaComponent implements OnInit {
 
-	tarea: Tarea;
+	nuevaTarea: FormControl;
 
   constructor(private store: Store<any>) { 
-  	this.tarea = new Tarea();
+  	this.nuevaTarea = new FormControl("");
   }
 
   ngOnInit() {
   }
 
   onSubmit(){
+  	let nombreTarea: string = this.nuevaTarea.value;
+  	if(nombreTarea.trim() == "")
+  		return;
   	this.store.dispatch(TareaActions.agregarTarea({
   		tarea: { 
 	  		id: Tarea.uuid(), 
 	  		completado: false, 
-	  		name: this.tarea.name, 
+	  		name: nombreTarea, 
 	  		editando: false 
   		}
   	}));
-  	this.tarea.name = "";
+  	this.nuevaTarea.reset("");
+
   }
 
 }
