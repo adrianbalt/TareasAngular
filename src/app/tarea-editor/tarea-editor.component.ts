@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Tarea} from '../tarea'
+import {FormControl} from '@angular/forms'
 
 @Component({
   selector: 'app-tarea-editor',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TareaEditorComponent implements OnInit {
 
-  constructor() { }
+	@Input() tarea: Tarea;
+
+  constructor() { 
+  }
 
   ngOnInit() {
   }

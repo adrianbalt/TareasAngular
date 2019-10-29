@@ -1,1 +1,8 @@
-<p>tarea-editor works!</p>
+<p>{{tarea.name}}</p>
+<form class="tarea-editor" (ngSubmit)="onSubmit()">
+  <mat-form-field >
+    <input matInput name="inputNameTarea" [ngModel]="tarea.name" autocomplete="off">
+    <span matPrefix><mat-icon>home</mat-icon></span>
+    <span matSuffix>.00ddd</span>
+  </mat-form-field>
+</form>	

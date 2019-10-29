@@ -1,7 +1,5 @@
-<ul class="tareas">
-  <li  *ngFor="let tarea of tareas">
-    {{tarea.name}}
-  </li>
-</ul>
-
-<button id="increment" (click)="agregar()">Agregar</button>
+<div class="tareas">
+  <div *ngFor="let tarea of tareas">
+    <app-tarea-editor [tarea]="tarea"></app-tarea-editor>
+  </div>
+</div>

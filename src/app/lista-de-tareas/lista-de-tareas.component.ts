@@ -22,15 +22,4 @@ export class ListaDeTareasComponent implements OnInit {
   	this.store.select('tareasList').subscribe((state => this.tareas = state.tareas));
   }
 
-  agregar(){
-  	this.store.dispatch(TareaActions.agregarTarea({
-  		tarea: { 
-	  		id: Tarea.uuid(), 
-	  		completado: false, 
-	  		name: "Tarea "+Math.floor(Math.random()*10000), 
-	  		editando: false 
-  		}
-  	}));
-  }
-
 }
