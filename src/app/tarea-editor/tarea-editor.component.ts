@@ -11,8 +11,7 @@ export class TareaEditorComponent implements OnInit {
 
 	@Input() tarea: Tarea;
 
-  constructor() { 
-  }
+  constructor() { }
 
   ngOnInit() {
   }
