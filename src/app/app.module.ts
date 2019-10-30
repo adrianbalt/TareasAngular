@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TareaEditorComponent } from './tarea-editor/tarea-editor.component';
 
@@ -34,6 +35,7 @@ import { TareaEditorComponent } from './tarea-editor/tarea-editor.component';
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatButtonModule,
     MatIconModule
   ],
   providers: [],

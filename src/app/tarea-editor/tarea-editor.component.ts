@@ -11,9 +11,16 @@ export class TareaEditorComponent implements OnInit {
 
 	@Input() tarea: Tarea;
 
+	editando: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDblClick(){
+  	console.log("aaaa")
+  	this.editando = !this.editando
   }
 
 }
