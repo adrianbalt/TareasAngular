@@ -11,7 +11,7 @@ export class TareaEditorComponent implements OnInit {
 
 	@Input() tarea: Tarea;
 
-	editando: boolean = true;
+	editando: boolean = false;
 
   constructor() { }
 
@@ -21,6 +21,12 @@ export class TareaEditorComponent implements OnInit {
   onDblClick(){
   	console.log("aaaa")
   	this.editando = !this.editando
+  }
+
+  onBlur(){
+  	console.log("eidtorrrr")
+  	// console.log(editorForm)
+  	this.editando = false
   }
 
 }

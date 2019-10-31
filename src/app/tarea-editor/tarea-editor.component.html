@@ -6,9 +6,10 @@
   			</button>
 		</div>
 		<div class="input-col-2">
-			<mat-form-field >
-				<input matInput (dblclick)="onDblClick()" #inputTarea="ngModel" name="inputNameTarea" [(ngModel)]="tarea.name" autocomplete="off" [readonly]="editando">
+			<mat-form-field *ngIf="editando">
+				<input matInput #inputTarea="ngModel" name="inputNameTarea" [(ngModel)]="tarea.name" autocomplete="off" (blur)="onBlur()" autofocus>
 			</mat-form-field>
+			<span class="static" *ngIf="!editando" (dblclick)="onDblClick()">{{tarea.name}}</span>
 		</div>
 		<div class="input-col-3">
 			<button mat-icon-button color="warn">
