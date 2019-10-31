@@ -1,20 +1,21 @@
 <form class="tarea-editor" #editorForm="ngForm" (ngSubmit)="onSubmit()">
 	<div class="input-grid">
 		<div class="input-col-1">
-			<button mat-icon-button>
-   				<mat-icon>check_circle_outline</mat-icon>
+			<button mat-icon-button type="button" (click)="completado =!completado">
+   				<mat-icon *ngIf="completado">check_circle_outline</mat-icon>
+   				<mat-icon *ngIf="!completado">radio_button_unchecked</mat-icon>
   			</button>
 		</div>
 		<div class="input-col-2">
 			<mat-form-field *ngIf="editando">
-				<input matInput #inputTarea="ngModel" name="inputNameTarea" [(ngModel)]="tarea.name" autocomplete="off" (blur)="onBlur()" autofocus>
+				<input matInput #inputNameTarea name="inputNameTarea" [(ngModel)]="nameTarea" autocomplete="off" (blur)="onBlur()" autofocus>
 			</mat-form-field>
-			<span class="static" *ngIf="!editando" (dblclick)="onDblClick()">{{tarea.name}}</span>
+			<span class="static" *ngIf="!editando" (dblclick)="onDblClick()">{{nameTarea}}</span>
 		</div>
 		<div class="input-col-3">
-			<button mat-icon-button color="warn">
+			<button mat-icon-button color="warn" type="button">
    				<mat-icon>cancel</mat-icon>
   			</button>
 		</div>
 	</div>
-</form>	
+</form>
