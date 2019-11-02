@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 import * as TareaActions from '../actions/tarea';
 import * as fromTarea from '../reducers/tarea';
 import {ViewChild, AfterViewInit, ElementRef, ChangeDetectorRef} from '@angular/core'
-import {MatButtonToggleGroup} from '@angular/material/button-toggle';
+import {MatButtonToggleGroup} from '@angular/material/button-toggle';	
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ListaDeTareasComponent implements OnInit, AfterViewInit {
 
 	@ViewChild("filtroGroup",{static:false}) toggleFiltro: MatButtonToggleGroup;
 
-  constructor(private store: Store<any>, private ref: ChangeDetectorRef) { }
+  constructor(private store: Store<any>, private ref: ChangeDetectorRef, public dialog: MatDialog) { }
 
   ngOnInit() {
   	this.store.select('tareasList').subscribe((state => {
@@ -64,6 +65,34 @@ export class ListaDeTareasComponent implements OnInit, AfterViewInit {
   			console.log("no paso filtro")
   			break;
   	}
+  }
+
+  onClickBorrar(): void {
+    const dialogRef = this.dialog.open(DialogConfirmarBorrado, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed '+result);
+      if(result)
+      	this.store.dispatch(TareaActions.limpiarCompletadas());
+    });
+  }
+
+
+}
+
+@Component({
+  selector: 'dialog-confirmar-borrado',
+  templateUrl: 'dialog-confirmar-borrado.html',
+})
+export class DialogConfirmarBorrado {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogConfirmarBorrado>) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

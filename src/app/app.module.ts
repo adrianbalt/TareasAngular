@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AgregarTareaComponent } from './agregar-tarea/agregar-tarea.component';
-import { ListaDeTareasComponent } from './lista-de-tareas/lista-de-tareas.component';
+import { ListaDeTareasComponent, DialogConfirmarBorrado } from './lista-de-tareas/lista-de-tareas.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,14 +14,17 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TareaEditorComponent } from './tarea-editor/tarea-editor.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarTareaComponent,
     ListaDeTareasComponent,
-    TareaEditorComponent
+    TareaEditorComponent,
+    DialogConfirmarBorrado
   ],
+  entryComponents: [DialogConfirmarBorrado],
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers, {
@@ -38,7 +41,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    MatButtonToggleModule
+    MatButtonToggleModule, 
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

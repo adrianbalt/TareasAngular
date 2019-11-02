@@ -7,3 +7,4 @@ export const eliminarTarea = createAction('Eliminar Tarea', props<{tarea: Tarea}
 export const toggleCompletado = createAction('Toggle Tarea', props<{tarea: Tarea}>());
 export const terminarTarea = createAction('Terminar Tarea', props<{tarea: Tarea}>());
 export const reiniciarTarea = createAction('Reiniciar Tarea', props<{tarea: Tarea}>());
+export const limpiarCompletadas = createAction('Limpiar Tareas');
