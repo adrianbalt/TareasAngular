@@ -1,5 +1,21 @@
 <div class="tareas">
+	<div>
+		<mat-button-toggle-group #filtroGroup="matButtonToggleGroup" (change)="onChangeFiltro($event.value)">
+			<mat-button-toggle value="todas">
+				Todas ({{tareasTodas.length}})
+			</mat-button-toggle>
+			<mat-button-toggle value="pendientes">
+				Pendientes ({{tareasPendientes.length}})
+			</mat-button-toggle>
+			<mat-button-toggle value="completadas">
+				Completadas ({{tareasCompletadas.length}})
+			</mat-button-toggle>
+		</mat-button-toggle-group>
+	</div>
   <div *ngFor="let tarea of tareas">
     <app-tarea-editor [tarea]="tarea"></app-tarea-editor>
+  </div>
+  <div>
+  	<button mat-stroked-button color="warn">Borrar Completadas</button>
   </div>
 </div>
