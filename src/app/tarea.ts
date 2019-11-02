@@ -4,6 +4,10 @@ export class Tarea {
   name: string;
   editando: boolean;
 
+  static clone(tarea:Tarea):Tarea{
+    return JSON.parse(JSON.stringify(tarea))
+  }
+
   static uuid(){
         /*jshint bitwise:false */
         var i, random;

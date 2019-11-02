@@ -1,19 +1,19 @@
 <form class="tarea-editor" #editorForm="ngForm" (ngSubmit)="onSubmit()">
 	<div class="input-grid">
 		<div class="input-col-1">
-			<button mat-icon-button type="button" (click)="completado =!completado">
-   				<mat-icon *ngIf="completado">check_circle_outline</mat-icon>
-   				<mat-icon *ngIf="!completado">radio_button_unchecked</mat-icon>
+			<button mat-icon-button type="button" (click)="onClickCheck()">
+   				<mat-icon *ngIf="tareaEdit.completado">check_circle_outline</mat-icon>
+   				<mat-icon *ngIf="!tareaEdit.completado">radio_button_unchecked</mat-icon>
   			</button>
 		</div>
 		<div class="input-col-2">
-			<mat-form-field *ngIf="editando">
-				<input matInput #inputNameTarea name="inputNameTarea" [(ngModel)]="nameTarea" autocomplete="off" (blur)="onBlur()" autofocus>
+			<mat-form-field *ngIf="tareaEdit.editando">
+				<input matInput #inputNameTarea name="inputNameTarea" [(ngModel)]="tareaEdit.name" autocomplete="off" (blur)="onBlur()" autofocus>
 			</mat-form-field>
-			<span class="static" *ngIf="!editando" (dblclick)="onDblClick()">{{nameTarea}}</span>
+			<span class="static" *ngIf="!tareaEdit.editando" (dblclick)="onDblClick()">{{tareaEdit.name}}</span>
 		</div>
 		<div class="input-col-3">
-			<button mat-icon-button color="warn" type="button">
+			<button mat-icon-button color="warn" type="button" (click)="onClickDelete()">
    				<mat-icon>cancel</mat-icon>
   			</button>
 		</div>

@@ -36,6 +36,13 @@ const tareasReducer = createReducer(
   		newState.tareas.splice(index, 1);
   	return newState;
   }),
+  on(TareaActions.toggleCompletado, (state, {tarea}) =>{
+    let newState = copiarTareas(state);
+    let index = newState.tareas.findIndex( viejaTarea => (viejaTarea.id == tarea.id));
+    if(index >= 0)  
+      newState.tareas[index].completado = !newState.tareas[index].completado;
+    return newState;
+  }),
   on(TareaActions.terminarTarea, (state, {tarea}) =>{
   	let newState = copiarTareas(state);
   	let index = newState.tareas.findIndex( viejaTarea => (viejaTarea.id == tarea.id));
